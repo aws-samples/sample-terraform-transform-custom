@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# Secrets & Terraform state  (NEVER commit — contains real account IDs and the
+# plaintext RDS password from the deployed demo stack)
+# ---------------------------------------------------------------------------
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+
+# Variable files may hold secrets
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform working dirs & CLI files
+**/.terraform/
+.terraformrc
+terraform.rc
+
+# Note: .terraform.lock.hcl is intentionally NOT ignored — committing it pins
+# provider versions for reproducible runs.
+
+# ---------------------------------------------------------------------------
+# Python virtual environment (used to render the architecture diagram)
+# ---------------------------------------------------------------------------
+.diagrams-venv/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---------------------------------------------------------------------------
+# Editor / OS / tooling cruft
+# ---------------------------------------------------------------------------
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# draw.io autosave backups
+*.bkp
+.$*.drawio.bkp
+
+# Kiro IDE workspace config (local tooling, not part of the sample)
+.kiro/
+
+# ---------------------------------------------------------------------------
+# Internal authoring material — NOT for publication.
+# These contain working notes, draft IDs, a real AWS account ID, and an
+# internal content-quality scan. Remove these lines only after scrubbing the
+# files if you decide to publish them.
+# ---------------------------------------------------------------------------
+KEY-LEARNINGS.md
+REVIEW-RESPONSES.md
+scan-report.json
+scan-report-25jun.json
+# Review-render tooling and intermediates (internal)
+.review-tools/
+blog/terraform-modernization-atx-custom.html
+# PCSR threat model evidence (attach to SIM ticket; not for the public repo)
+threat-model/

@@ -1,0 +1,15 @@
+buildCommand: terraform init && terraform validate && terraform plan
+additionalPlanContext: |
+  Modernize this Terraform configuration into a clean, modular structure that
+  follows our organization's standards, without changing any deployed
+  infrastructure. Group resources into purpose-built child modules organized by
+  concern, called from a thin root module wired through inputs and outputs.
+  Replace hardcoded literals with typed, described input variables that preserve
+  the current values. Collapse duplicated resource blocks into for_each over maps
+  using stable, meaningful string keys; avoid count. Apply provider default_tags
+  for tags common across resources while keeping each resource's effective tag set
+  unchanged. Pin providers with a required_providers version constraint matching
+  the version already resolved in the lock file. Externalize any plaintext secrets
+  into sensitive variables without changing their values. Emit a moved block for
+  every resource whose address changes. The transformation is complete only when
+  terraform plan reports "No changes".
